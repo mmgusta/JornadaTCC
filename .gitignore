@@ -51,3 +51,5 @@ RemoteSystemsTempFiles
 *.classpath
 SubmissaoEventos/.settings
 SubmissaoEventos/target
+.recommenders
+*.gen
