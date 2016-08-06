@@ -2,38 +2,43 @@ package br.com.submissaoeventos.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
 import br.com.submissaoeventos.model.Usuario;
 
+@Repository
 public class UsuarioDao implements Dao<Usuario> {
 
+	@PersistenceContext
+	EntityManager manager;
+	
 	@Override
 	public Usuario busca(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.find(Usuario.class, id);
 	}
 
 	@Override
 	public void adiciona(Usuario t) {
-		// TODO Auto-generated method stub
-		
+		manager.persist(t);
 	}
 
 	@Override
 	public void remove(Usuario t) {
-		// TODO Auto-generated method stub
-		
+		Usuario usuario = busca(t.getId());
+		manager.remove(usuario);
 	}
 
 	@Override
 	public void altera(Usuario t) {
-		// TODO Auto-generated method stub
-		
+		manager.merge(t);
 	}
 
 	@Override
 	public List<Usuario> lista() {
-		// TODO Auto-generated method stub
-		return null;
+		return manager.createQuery("select u from Usuario u").getResultList();
 	}
 
 }

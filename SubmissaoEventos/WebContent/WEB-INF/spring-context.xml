@@ -10,7 +10,7 @@
 	   	http://www.springframework.org/schema/context
 	   	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	   	
-	<context:component-scan base-package="br.com.tcc.gustavo" />
+	<context:component-scan base-package="br.com.submissaoeventos" />
 	<mvc:annotation-driven/>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -30,6 +30,10 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	   	
 </beans>
