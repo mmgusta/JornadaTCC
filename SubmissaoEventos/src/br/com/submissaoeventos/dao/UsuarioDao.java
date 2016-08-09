@@ -28,14 +28,15 @@ public class UsuarioDao implements Dao<Usuario> {
 	}
 
 	@Override
-	public void remove(Usuario t) {
-		Usuario usuario = busca(t.getId());
+	public void remove(long id) {
+		Usuario usuario = busca(id);
 		manager.remove(usuario);
 	}
 
 	@Override
 	public void altera(Usuario t) {
-		manager.merge(t);
+		Usuario usuario = busca(t.getId());
+		manager.merge(usuario);
 	}
 
 	@Override

@@ -10,10 +10,12 @@
 <spring:form method="post" action="cadastra" modelAttribute="usuario">
 
 	<div>${mensagem}</div>
+	
+	<spring:hidden path="id"/>
 
 	<div>
 		<label for="nome">Nome:</label>
-		<spring:input path="nome"/>
+		<spring:input path="nome" />
 	</div>
 	<div>
 		<label for="email">E-mail:</label>
