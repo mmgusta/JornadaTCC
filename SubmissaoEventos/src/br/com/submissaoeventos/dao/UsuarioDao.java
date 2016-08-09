@@ -35,8 +35,7 @@ public class UsuarioDao implements Dao<Usuario> {
 
 	@Override
 	public void altera(Usuario t) {
-		Usuario usuario = busca(t.getId());
-		manager.merge(usuario);
+		manager.merge(t);
 	}
 
 	@Override

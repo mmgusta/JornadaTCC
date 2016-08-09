@@ -78,6 +78,6 @@ public class UsuarioController {
 		
 		model.addAttribute("usuario", usuario);
 		
-		return this.filtro(model);
+		return "usuario/edita";
 	}
 }
